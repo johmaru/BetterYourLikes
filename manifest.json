@@ -1,0 +1,21 @@
+{
+    "name": "Better your likes",
+    "description": "Fast Like Save!!",
+    "version": "1.0",
+    "manifest_version": 3,
+    "permissions": ["activeTab", "scripting"],
+    "action": {
+      "default_popup": "main.html",
+      "default_icon": "test2.png",
+      "default_title": "Fast Like Save!!"
+    },
+    "commands": {
+      "_execute_action": {
+        "suggested_key": {
+          "default": "Ctrl+B",
+          "mac": "MacCtrl+B"
+        },
+        "description": "Run extension."
+      }
+    }
+  }
