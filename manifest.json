@@ -3,11 +3,15 @@
     "description": "Fast Like Save!!",
     "version": "1.0",
     "manifest_version": 3,
-    "permissions": ["activeTab", "scripting"],
+    "permissions": [
+      "activeTab",
+      "scripting",
+       "tabs"],
     "action": {
       "default_popup": "main.html",
       "default_icon": "test2.png",
-      "default_title": "Fast Like Save!!"
+      "default_title": "Fast Like Save!!",
+      "default_settings": "settings.json"
     },
     "commands": {
       "_execute_action": {

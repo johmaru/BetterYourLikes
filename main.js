@@ -1,18 +1,16 @@
-document.getElementById("btn").addEventListener("click", async () => {
-    chrome.tabs.query({'active': true}, function (tabs) {
-        var url = tabs[0].url;
-        //次はここから
-    });
-  });
-
-  document.getElementById("clear").addEventListener("click", async () => {
-    let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-    chrome.scripting.executeScript({
-      target: { tabId: tab.id },
-      function: onRun,
-    });
-  });
-  
-  function onRun() {
-    document.body.style.backgroundColor = "#fefeff";
-  }
+async function getTab() {
+    let queryOptions = { active: true, currentWindow: true };
+    let tabs = await chrome.tabs.query(queryOptions);
+    return tabs[0].url;
+}
+chrome.tabs.onUpdated.addListener(async function () {
+    console.log("TAB UPDATED")
+    const sendMessageId = document.getElementById("BTN-URL");
+if (sendMessageId) {
+    sendMessageId.onclick = async function() {
+      let url = await getTab()
+      var urlString = document.getElementById("urlString");
+      urlString.innerHTML = url;
+    }
+}
+})
